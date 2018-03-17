@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <title>Venum</title>
+        <link rel="shourtcut icon" type="image/x-icon"
+            href="venumlogo.jpg"/>
+        <link rel="stylesheet" href="css/playpage.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <header>
+            <link rel="shortcut icon" href="/favicon.png" type="image/png">
+            <link rel="shortcut icon" type="image/png" href="venum logo.png" />
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a style="margin-left:435px;font-size:30px;" class="navbar-brand" href="#">Venum</a>
+                <a style ="font-size:30px;" class="navbar-brand" href="#">About</a>
+                <a style ="font-size:30px;" class="navbar-brand" href="#">Breadboard</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">      
+                    </ul>
+                </div>  
+            </nav>
+        </header>
+        <div style="position:absolute;">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        </div>
+  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <style>
+        #draggable {
+            width: 150px; 
+            height: 150px; 
+            padding: 0.5em; 
+        }
+    </style>
+    <body>
+        <script>
+            window.onscroll = function() {myFunction()};                  
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;                   
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        </script>
+        <script>
+            $( function() {
+                $( "#draggable7" ).draggable({
+                    drag: function(event, ui) {
+                    var pos = ui.position;
+                }});
+           
+                $( "#draggable6" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+                
+                $( "#draggable5" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+            
+                $( "#draggable4" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+            
+                $( "#draggable3" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+           
+                $( "#draggable2" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+                
+                $( "#draggable" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                  /*$("#obj2").css({
+                  left: pos.left + 100,
+                  top: pos.top + 100
+                  });*/
+                  var obj = {
+                    y : [157,197,237,277,317,357,397,437,477,517],
+                    x : [398 ,438,478,518,558,598,638,678,718,758]
+                  }
+                  var yci = obj.y //=> vsichki y-ci  
+                  var razlika = pos - yci[0];
+                  var mixY = {
+                    tyrsenY : yci[0],
+                    razlika : razlika
+                  }
+                  for(var i = 1; i<yci.lenght;i++){ 
+                    if(yci[i]- pos <  minY.razlika){
+                      minY.razlika = yci[1] - pos;
+                      minY.tyrsenY = yci[1];
+                    }
+                  }                 
+                  if(pos.left >= 290 && pos.left <= 303)
+                    $('#draggable img').attr('src', 'diod1.png');
+                  else
+                    $('#draggable img').attr('src', 'diod2.png');
+                  if(pos.left >=332 && pos.left <= 342)
+                    $('#draggable img').attr('src', 'diod1.png');
+                  if(pos.left >= 372 && pos.left <= 381 )
+                    $('#draggable img').attr('src', 'diod1.png');
+                  if(pos.left >= 413 && pos.left <= 426)
+                    $('#draggable img').attr('src', 'diod1.png');
+                  if(pos.left >= 453 && pos.left <= 463)
+                    $('#draggable img').attr('src', 'diod1.png');
+                  if(pos.left >= 495 && pos.left <= 502)
+                    $('#draggable img').attr('src', 'diod1.png');
+                  if(pos.left >= 532 && pos.left <= 542)
+                    $('#draggable img').attr('src', 'diod1.png');
+                  if(pos.left >= 571 && pos.left <=583)
+                    $('#draggable img').attr('src', 'diod1.png');
+                  if(pos.left >= 612 && pos.left <= 622)
+                    $('#draggable img').attr('src', 'diod1.png');
+                    }
+                });
+                });                
+        </script>
+        <script>
+            /* function getMousePosition(event){
+                alert(`${event.clientX}, ${event.clientY}`);
+                }*/
+            function onMyDrop(event){                
+                drop(event);
+            }          
+        </script>
+        <div id="div2" ondrop="onMyDrop(event)" ondragover="allowDrop(event)"></div>
+            <div id="canvas-container">
+                <script src="./script2.js"></script>
+                <script src="./script1.js"></script>
+            </div>
+        <div style="margin-top:-550px;"id="draggable"class="ui-widget-content">
+            <img src='diod2.png' width="200px" height="200px">
+        </div>
+        <div style="margin-top:-60px;margin-left:20px;"id="draggable2" class="ui-widget-content">
+            <img src='battery4.png' width="50px" height="100px">
+        </div>
+        <div style="margin-top:20px;margin-left:20px;" id="draggable3" class="ui-widget-content">
+            <img src='resis1.png' width="100px" height="50px">
+        </div>
+        <div style="margin-top:-40px;margin-left:50px;" id="draggable4" class="ui-widget-content">
+            <img src='resis.png' width="100px" height="50px">
+        </div>
+        <div style="margin-top:0px;margin-left:0px;" id="draggable5" class="ui-widget-content">
+            <img src='jumper.png' width="100px" height="100px">
+        </div>
+    </body>
+</html>
