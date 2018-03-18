@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Venum</title>
+        <script src="./PositionPlacer.js"></script>
+        <link rel="shourtcut icon" type="image/x-icon"href="venumlogo.jpg"/>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="shortcut icon" href="/favicon.png" type="image/png">
+        <link rel="shortcut icon" type="image/png" href="venum logo.png" />
+    
+        <style>
+            #draggable {
+                width: 150px; 
+                height: 150px; 
+                padding: 0.5em; 
+            }
+    </style>
+    </head>
+    <body >
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a style="margin-left:435px;font-size:30px;" class="navbar-brand" href="#">Venum</a>
+                <a style ="font-size:30px;" class="navbar-brand" href="#">Breadboard</a>
+                <a style ="font-size:30px;" class="navbar-brand" href="#">About</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">      
+                    </ul>
+                </div>  
+            </nav>
+        </header>
+
+        <div style="position:absolute;">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        </div>
+        <div id="droppable" >
+            <div id="canvas-container" ondrop="onMyDrop(event)" ondragover="allowDrop(event)">
+                <script src="./script2.js"></script>
+                <script src="./script1.js"></script>
+            </div>
+        </div>
+        
+            <div style="margin-top:-550px;"id="draggable"class="ui-widget-content">
+                <img src='diod2.png' width="200px" height="200px" draggable="true">
+            </div>
+            <div style="margin-top:-60px;margin-left:20px;"id="draggable2" class="ui-widget-content">
+                <img src='battery4.png' width="50px" height="100px">
+            </div>
+            <div style="margin-top:20px;margin-left:20px;" id="draggable3" class="ui-widget-content">
+                <img src='resis1.png' width="100px" height="50px">
+            </div>
+            <div style="margin-top:-40px;margin-left:50px;" id="draggable4" class="ui-widget-content">
+                <img src='resis.png' width="100px" height="50px">
+            </div>
+            <div style="margin-top:0px;margin-left:0px;" id="draggable5" class="ui-widget-content">
+                <img src='jumper.png' width="100px" height="100px">
+            </div>
+            
+        <script>
+
+            var lampPos;
+
+            $( function() {
+                $( "#draggable7" ).draggable({
+                    drag: function(event, ui) {
+                    var pos = ui.position;
+                }});
+           
+                $( "#draggable6" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+                
+                $( "#draggable5" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+            
+                $( "#draggable4" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+            
+                $( "#draggable3" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+           
+                $( "#draggable2" ).draggable({
+                  drag: function(event, ui) {
+                  var pos = ui.position;
+                }});
+                
+                $( "#draggable" ).draggable({
+                  drag: function(event, ui) {
+                //   lampPos = ui.position;
+                  $('#draggable img').attr('src', 'diod2.png');
+                    }
+                });
+                });                
+
+            $( "#droppable" ).droppable({
+                drop: function( event, ui ) {
+                    if(ui.helper.context.id == "draggable"){
+                        onMyDrop(ui);
+                    }
+                }
+            });
+
+
+            function onMyDrop(ui){
+                debugger;
+                let positionPlacer = new PositionPlacer(ui);
+                let closestCoordination = positionPlacer.getClosestCoordination();
+
+                if(closestCoordination.x != null && closestCoordination.y != null){
+                    $("#draggable").css({'top': closestCoordination.y - 325, 'left' : closestCoordination.x - 100});
+                    $('#draggable img').attr('src', 'diod1.png');
+                }
+            }          
+        </script>       
+    </body>
+</html>
